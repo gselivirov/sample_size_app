@@ -20,9 +20,9 @@ def calc_size_z(d,sigma,alpha=0.05):
 
 
 def calc_size_t(d,sd,df,alpha=0.05, beta=0.2):
-    t = stats.t.ppf(1 - alpha, df)
+    t = stats.t.ppf(alpha, df)
     bt = stats.t.ppf(1 - beta, df)
-    return ((-t -bt) * sd / (d))**2
+    return ((t -bt) * sd / (d))**2
 
 
 def calc_size_multi_z(d,sigma,alpha=0.05):
@@ -34,9 +34,9 @@ def calc_size_multi_z(d,sigma,alpha=0.05):
 
 
 def calc_size_multi_t(d,sd,df,alpha=0.05, beta=0.2):
-    t1 = stats.t.ppf(1-alpha, df)
+    t1 = stats.t.ppf(alpha, df)
     t2 = stats.t.ppf(1-beta, df)
-    return 2 / (d / ((-t1-t2) * sd))**2
+    return 2 / (d / ((t1-t2) * sd))**2
 #-------
 
 # App layout
