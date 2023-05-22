@@ -33,8 +33,8 @@ def render_intro_text() -> dbc.Col:
             html.H1("Sample Size Calculators for Essential Tests"),
             html.P(
                 """
-            This dashboard provides easy-to-use sample size calculators for essential statistical tests:
-            t-tests, ANOVA, regression analysis, and chi-square.
+            This dashboard provides easy-to-use sample size calculators for common statistical tests:
+            t-tests, ANOVA, regression analysis, and chi-squared.
             """
             ),
             html.Div(
