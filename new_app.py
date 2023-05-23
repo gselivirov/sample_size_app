@@ -1,6 +1,6 @@
 import dash
 import dash_bootstrap_components as dbc
-from dash import Input, Output, State, dcc, html
+from dash import Input, Output, State, dcc, html, ALL
 from dash_bootstrap_components.themes import BOOTSTRAP
 
 from components import (
@@ -27,15 +27,14 @@ def update_input_fields(value):
 @app.callback(
     Output("test_output", "children"),
     Input("input_button", "n_clicks"),
-    State("method_radio", "value"),
-    State("t_alpha", "value"),
-    State("t_beta", "value"),
-    State("t_delta", "value"),
-    State("t_tails", "value"),
+    [
+        State("method_radio", "value"),
+        State({"type": "input_field_input", "index": ALL}, "value"),
+    ],
     prevent_initial_call=True,
 )
-def update_output_field(n_clicks, selected_test, t_alpha, t_beta, t_delta, t_tails):
-    return output_fields.update_output(selected_test, t_alpha, t_beta, t_delta, t_tails)
+def update_output_field(n_clicks, selected_test, values):
+    return output_fields.update_output(selected_test, values)
 
 
 app.run_server(debug=True)

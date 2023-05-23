@@ -1,17 +1,15 @@
 import dash
 import dash_bootstrap_components as dbc
 from dash import dcc, html
-from components.test_info_components import t_test, anova
+from components.test_info_components import DataInterface
 
 
+data_interface = DataInterface()
 
 
 class AppInputs:
     def __init__(self):
-        self.tests = {
-            t_test.value: t_test,
-            anova.value: anova,
-        }
+        self.tests = data_interface.tests
 
     def create_input_field(self, var_name: str, var_id: str) -> dbc.Row:
         return dbc.Row(
@@ -19,7 +17,11 @@ class AppInputs:
                 dbc.Col(html.P(var_name), width=4),
                 dbc.Col(
                     dbc.Input(
-                        type="number", size="sm", style={"width": "40%"}, id=var_id, value=0
+                        type="number",
+                        size="sm",
+                        style={"width": "40%"},
+                        id={"type": "input_field_input", "index": var_id},
+                        value=0,
                     )
                 ),
             ],
@@ -30,11 +32,10 @@ class AppInputs:
             html.H4("Input Variables", id="input_header"),
             dbc.Container(
                 [
-                    self.create_input_field(
-                        var_name=f'{item.name}: ', var_id=item.id
-                    )
+                    self.create_input_field(var_name=f"{item.name}: ", var_id=item.id)
                     for item in self.tests[test_name].vars
-                ]
+                ],
+                id="variables_container",
             ),
         ]
 
