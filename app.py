@@ -14,8 +14,8 @@ input_fields = input_components.AppInputs()
 output_fields = output_components.AppOutput()
 
 
-app = dash.Dash(external_stylesheets=[BOOTSTRAP])
-app.title = "Sample Size Calculator"
+app = dash.Dash(__name__, external_stylesheets=[BOOTSTRAP])
+app.title = "Sample Calculator"
 app.layout = layout_component.create_layout(app)
 
 
@@ -25,7 +25,7 @@ def update_input_fields(value):
 
 
 @app.callback(
-    Output("test_output", "children"),
+    Output("output_container", "children"),
     Input("input_button", "n_clicks"),
     [
         State("method_radio", "value"),
@@ -37,4 +37,4 @@ def update_output_field(n_clicks, selected_test, values):
     return output_fields.update_output(selected_test, values)
 
 
-app.run_server(debug=True)
+app.run_server()

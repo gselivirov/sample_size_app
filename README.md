@@ -1,7 +1,15 @@
-# Sample size calculator
+# Sample Size Calculator
+This small app calculates sample sizes for common tests used in A/B testing.
 
-http://gselivirov.pythonanywhere.com/
+You can access it here: [Sample Size Calculator](http://gselivirov.pythonanywhere.com/) 
 
-### Small app to calculate sample sizes 
-For t-test, anova, chi squared, and linear regression
+---
 
+## Currently Supported Tests:
+- T-test
+- ANOVA
+- Chi-squared
+
+---
+
+The app was developed using the Dash framework by Plotly.

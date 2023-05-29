@@ -6,19 +6,7 @@ from dash import dcc, html
 
 def render_navbar() -> dbc.NavbarSimple:
     return dbc.NavbarSimple(
-        children=[
-            dbc.NavItem(dbc.NavLink("Page 1", href="#")),
-            dbc.DropdownMenu(
-                children=[
-                    dbc.DropdownMenuItem("More pages", header=True),
-                    dbc.DropdownMenuItem("Page 2", href="#"),
-                    dbc.DropdownMenuItem("Page 3", href="#"),
-                ],
-                nav=True,
-                in_navbar=True,
-                label="More",
-            ),
-        ],
+        children=[dbc.NavItem(dbc.NavLink("Page 1", href="#"))],
         brand="Sample Size",
         brand_href="#",
         color="dark",
@@ -34,16 +22,14 @@ def render_intro_text() -> dbc.Col:
             html.P(
                 """
             This dashboard provides easy-to-use sample size calculators for common statistical tests:
-            t-tests, ANOVA, regression analysis, and chi-squared.
+            t-tests, ANOVA, and chi-squared.
             """
             ),
             html.Div(
                 [
-                    html.Hr(),  # style={"display": "flex", "justify-content": "center"}
+                    html.Hr(),  
                     html.Br(),
                 ]
             ),
         ]
     )
-
-

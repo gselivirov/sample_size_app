@@ -26,6 +26,7 @@ def create_layout(app: dash.Dash):
                             ),
                             dbc.Col(output_fields.render()),
                         ],
+                        style={"padding": "0 1rem"},
                     ),
                 ],
                 id="content_container",
