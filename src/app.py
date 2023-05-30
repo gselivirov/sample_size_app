@@ -39,4 +39,4 @@ def update_output_field(n_clicks, selected_test, values):
     return output_fields.update_output(selected_test, values)
 
 
-app.run_server()
+app.run_server(host='0.0.0.0')
