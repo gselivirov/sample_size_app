@@ -15,6 +15,8 @@ output_fields = output_components.AppOutput()
 
 
 app = dash.Dash(__name__, external_stylesheets=[BOOTSTRAP])
+server = app.server
+
 app.title = "Sample Calculator"
 app.layout = layout_component.create_layout(app)
 
